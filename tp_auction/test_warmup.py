@@ -73,7 +73,6 @@ class Dog(Animal):
         return "Woof"
 
 
-
 class Cat(Animal):
     """
     Classe fille d'Animal.
@@ -114,7 +113,6 @@ class Bird(Animal):
         if self.can_fly : 
             text = text + "can fly"
         return text
-
 
 
 # =============================================================================
@@ -166,14 +164,17 @@ class TestAnimals(unittest.TestCase):
     """
 
     # TODO : Écrivez le test pour Dog
-    pass
+    def test_dog(self) : 
+        self.assertEqual(Dog("Rex").describe(), "Rex says Woof")
 
     # TODO : Écrivez le test pour Bird qui ne vole pas
-    pass
+    def test_bird_no_fly(self) : 
+        self.assertEqual(Bird("Pingu", can_fly=False).describe(), "Pingu says Tweet")
 
     # TODO : Écrivez le test pour Dog sans nom (doit lever TypeError)
-    pass
-
+    def test_dog_needs_name(self) : 
+        with self.assertRaises(TypeError) :    # self.assertRaises(Dog()) ne fonctionne pas cf. écriture module py
+            Dog()
 
 class Greeter:
     """
@@ -206,15 +207,16 @@ class ScriptedCli:
 
     def __init__(self, answers):
         # TODO : Stockez les réponses et initialisez displayed
-        pass
+        self.answers = answers
 
     def display(self, message):
         # TODO : Ajoutez le message à displayed
-        pass
+        self.displayed = []
 
     def prompt(self, message):
         # TODO : Ajoutez le message à displayed et retournez la première réponse
-        pass
+        self.displayed.append(message)
+        return self.answers.pop(0)
 
 
 # =============================================================================
