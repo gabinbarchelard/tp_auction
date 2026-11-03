@@ -78,7 +78,7 @@ class Cat(Animal):
     TODO : Redéfinissez sound() pour retourner "Meow"
     """
     def sound(self) : 
-            return "Meow"
+        return "Meow"
     
 
 
@@ -109,7 +109,7 @@ class Bird(Animal):
     def describe(self) : 
         text = super().describe()           # on obtient le texte de base
         if self.can_fly : 
-            text = text + "can fly"
+            text = text + " and flies"
         return text
 
 
@@ -205,7 +205,7 @@ class ScriptedCli:
 
     def __init__(self, answers):
         # TODO : Stockez les réponses et initialisez displayed 
-        self.answers = list(answers)         # on part du principe que answers est déjà une liste, sinon list(answers)
+        self.answers = answers         # on part du principe que answers est déjà une liste, sinon list(answers)
         self.displayed = []
 
     def display(self, message):
