@@ -68,7 +68,6 @@ class Dog(Animal):
     TODO : Vous devez uniquement redéfinir sound() pour retourner "Woof"
     Ne réécrivez PAS describe() ! Elle est héritée d'Animal.
     """
-
     def sound(self) : 
         return "Woof"
 
@@ -78,7 +77,6 @@ class Cat(Animal):
     Classe fille d'Animal.
     TODO : Redéfinissez sound() pour retourner "Meow"
     """
-
     def sound(self) : 
             return "Meow"
     
@@ -206,12 +204,13 @@ class ScriptedCli:
     """
 
     def __init__(self, answers):
-        # TODO : Stockez les réponses et initialisez displayed
-        self.answers = answers
+        # TODO : Stockez les réponses et initialisez displayed 
+        self.answers = list(answers)         # on part du principe que answers est déjà une liste, sinon list(answers)
+        self.displayed = []
 
     def display(self, message):
         # TODO : Ajoutez le message à displayed
-        self.displayed = []
+        self.displayed.append(message)
 
     def prompt(self, message):
         # TODO : Ajoutez le message à displayed et retournez la première réponse
